@@ -88,7 +88,7 @@ whether a model you design yourself or an existing ecological model.
 Let's look at some examples of one-dimensional models and talk about what we can learn from these models
 qualitatively, without doing any calculations.
 
-**Dimension**: the number of variables in your model. (Not the number of parameters.  
+  * **Dimension**: the number of variables in your model. (Not the number of parameters.  
 Variables are what track the species you're interested in, 
 and parameters are numbers that specify the details of the model.)
 
@@ -108,7 +108,7 @@ $$lim_{\Delta t \to 0}\frac{N_{t+\Delta t} - N_t}{\Delta t} = \frac{dN}{dt}$$
 
 If you've taken calculus, you will recognize this as the first derivative of $N$ with respect to $t$. 
 If your calculus is foggy in your memory, when you see this notation think "change in $N$ per change in $t$.
-$dN$ is the notation commonly used to mean "a small amount of $N$," so this expression mathematically describes
+$dN$ is the notation commonly used to mean 'a small amount of $N$,' so this expression mathematically describes
 by what small amount $N$ will change in a small amount of time $dt$. This is also sometimes written as
 $\dot{N}$. I will usually use $dN/dt$ but you may see the dot notation in the literature. 
 A single dot is shorthand for "first derivative". 
@@ -141,12 +141,12 @@ library(ggplot2) # ggplot2 includes the qplot function
 # data <- data.frame(times, population_size)
 
 times <- seq(0, 10, by = 0.2)
-population_size <- 2 ^ times
+population_size <- 2 ^ times # exponential growth
 qplot(times, population_size) +
   geom_line(aes(x = times, y = population_size))
 ```
 
-How do we write this assumption as a general model? Let's calculate the difference in $N$ at each time point
+How do we write this assumption as a model? Let's calculate the difference in $N$ at each time point
 and plot this vs. $N$ at the previous time point. 
 
 ```{r}
