@@ -526,51 +526,6 @@ mass_spring_trajectory <- trajectory(mass_spring,
                             system = "two.dim")
 ```
 
-## Finding fixed points analytically (time permitting)
-
-Up until now we've been plotting `r eq_dn_dt` vs. $N$ to find the fixed points of a system. 
-But we can also solve `r eq_dn_dt` $=0$ analytically to find the fixed points. One advantage of
-finding the fixed points analytically is that you can see how the fixed points depend on the
-model parameters, whereas before we had to choose parameters in order to plot `r eq_dn_dt`
-and find the fixed points qualitatively.
-
-$$\frac{dN}{dt} = rN(1-\frac{N}{K})$$
-
-First, we set `r eq_dn_dt` $=0$. 
-
-$$0 = rN(1-\frac{N}{K})$$
-
-Next, we find all the values of $N$ that satisfy this equation. If either $rN = 0$ or 
-$1-\frac{N}{K} = 0$, the equation is satisfied. This means we have two fixed points, 
-one at $N = 0$ (since $r \neq 0$) and the other at $N = K$. These are the same fixed 
-points we found graphically last week. Notice that one of the fixed points depends on 
-$K$, but that neither of the fixed points depend on $r$. 
-
-#### Challenge
-
-Find the fixed point(s) of the following differential equation: 
-
-$$\frac{dx}{dt} = x^2 - 1$$
-
-   - First find the fixed points analytically on paper.
-   - Plot $\frac{dx}{dt}$ vs. $x$ for $x$ ranging from $-2$ to $2$ in $0.1$ increments.
-   - Sketch a phase portrait. Are the fixed point(s) stable or unstable?
-
-```{r, echo=FALSE, eval=FALSE}
-# Challenge solution
-
-# fixed points are x = 1, x = -1
-
-library(ggplot2)
-
-x_seq <- seq(-2, 2, by = 0.1)
-
-dx_dt <- x_seq^2 - 1
-
-qplot(x_seq, dx_dt) +
-  geom_hline(aes(yintercept = 0))
-```
-
 ## Extras
 
 Predator-prey simulation GIF in R
